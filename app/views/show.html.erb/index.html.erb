@@ -1,0 +1,23 @@
+<section class="wrap">
+  <div class="jumbotron">
+    <div class="hero">
+    <h2 class="display-3">Welcome to API Curious for Github!</h2>
+      <p class="lead">By logging in with Github you can... </p>
+      <ul class="lead">
+        <li>Authenticate your github account</li>
+        <li>View basic information about you account (profile pic, number of starred repos, followers, following)</li>
+        <li>View a summary feed of your recent activity (recent commits)</li>
+        <li>View a summary feed of recent activity from users whom you follow</li>
+        <li>View a list of organizations you're a member of</li>
+        <li>View a list of your repositories</li>
+      </ul>
+      <p class="lead">
+        <% if current_user %>
+        <%= link_to "Logout", logout_path, method: :delete, class: 'btn btn-info'%>
+        <% else %>
+          <%= link_to "Sign in with Github", github_login_path, class: 'btn btn-info'%>
+        <% end %>
+      </p>
+  </div>
+  </div>
+</section>
