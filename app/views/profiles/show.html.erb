@@ -32,17 +32,4 @@
     </tr>
   </tbody>
   </table>
-  <% @starred_repos.each do |repo| %>
-    <%= repo.name %>
-  <% end %>
-  <br><br>
-  <% @recent_activity.each do |activity| %>
-    <%= activity.type %>
-  <% end %>
-  <br><br>
-  <% @received_events.each do |event| %>
-    <%= event.type %>
-    <br>
-    <%=  %>
-  <% end %>
 </section>
