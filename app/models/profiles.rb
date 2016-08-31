@@ -4,6 +4,7 @@ class Profiles < OpenStruct
   end
 
   def self.find(user)
+    service.profile_setup(user)
     account_info = service.account_info(user)
     Profiles.new(account_info)
   end

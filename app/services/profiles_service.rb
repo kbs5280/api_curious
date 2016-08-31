@@ -1,8 +1,10 @@
 class ProfilesService
   def initialize
     @connection = Faraday.new("https://api.github.com")
-    @connection.headers['Authorization'] = 'token ae27c20186558769f92ac786259c9da7565b8604'
-    # @connection.headers["Authorization"] = "token #{@user.oauth_token}"
+  end
+
+  def profile_setup(user)
+    @connection.headers["Authorization"] = "token #{user.oauth_token}"
   end
 
   def account_info(user)

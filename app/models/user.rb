@@ -4,6 +4,7 @@ class User < ApplicationRecord
       new_user.uid                = auth_info.uid
       new_user.name               = auth_info.extra.raw_info.name
       new_user.username           = auth_info.info.nickname
+      new_user.oauth_token        = auth_info.credentials.token
     end
   end
 end
