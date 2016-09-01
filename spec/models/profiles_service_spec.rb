@@ -4,8 +4,8 @@ describe ProfilesService, type: :model do
   context '#account_info' do
     it 'returns account info for a user' do
       VCR.use_cassette('profiles_service_account_info') do
-        user = User.create(oauth_token: "9c223a767aa3fc7f61ced7c5bac6b02be25953fc",
-                           username: "kbs5280")
+        user = User.new(oauth_token: ENV['oauth_token'],
+                        username: "kbs5280")
         account_info = ProfilesService.new(user).account_info
 
         expect(account_info.count).to eq(30)
@@ -20,7 +20,7 @@ describe ProfilesService, type: :model do
   context '#starred_repos' do
     it 'returns the starred repos for a user' do
       VCR.use_cassette('profiles_service_starred_repos') do
-        user = User.create(oauth_token: "9c223a767aa3fc7f61ced7c5bac6b02be25953fc",
+        user = User.create(oauth_token: ENV['oauth_token'],
                            username: "kbs5280")
         starred_repos = ProfilesService.new(user).starred_repos
         starred_repo = starred_repos.first
@@ -36,8 +36,8 @@ describe ProfilesService, type: :model do
   context '#recent_activity' do
     it 'returns the recent activity for a user' do
       VCR.use_cassette('profiles_services_recent_activity') do
-        user = User.create(oauth_token: "9c223a767aa3fc7f61ced7c5bac6b02be25953fc",
-                           username: "kbs5280")
+        user = User.new(oauth_token: ENV['oauth_token'],
+                        username: "kbs5280")
         recent_activity = ProfilesService.new(user).recent_activity
         activity = recent_activity.first
 
@@ -51,7 +51,7 @@ describe ProfilesService, type: :model do
   context '#received_events' do
     it 'returns events for users to user follows' do
       VCR.use_cassette('service_profile_received_events') do
-        user = User.create(oauth_token: "9c223a767aa3fc7f61ced7c5bac6b02be25953fc",
+        user = User.new(oauth_token: "9c223a767aa3fc7f61ced7c5bac6b02be25953fc",
                            username: "kbs5280")
         received_events = ProfilesService.new(user).received_events
         received_event = received_events.first

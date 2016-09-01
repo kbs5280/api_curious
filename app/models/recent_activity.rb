@@ -13,4 +13,10 @@ class RecentActivity
       RecentActivity.new(activity)
     end
   end
+
+  def self.activity_display(user)
+    all_by(user).take(10).map do |activity|
+      "Type: #{activity.type}, Repo URL: #{activity.repo_url}, Repo: #{activity.repo_name}"
+    end
+  end
 end

@@ -1,5 +1,5 @@
 class StarredRepos
-
+  attr_reader :owner, :repo, :url
   def initialize(params)
     @owner = params[:owner][:login]
     @repo = params[:name]

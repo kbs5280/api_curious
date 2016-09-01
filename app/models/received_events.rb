@@ -13,4 +13,10 @@ class ReceivedEvents
       ReceivedEvents.new(event)
     end
   end
+
+  def self.events_display(user)
+    all_by(user).take(10).map do |event|
+      "Actor: #{event.actor}, Type: #{event.type}, Repo: #{event.repo_name}"
+    end
+  end
 end
