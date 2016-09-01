@@ -11,6 +11,7 @@ require 'vcr'
 VCR.configure do |config|
   config.cassette_library_dir = "spec/vcr_cassettes"
   config.hook_into :webmock # or :fakeweb
+  config.allow_http_connections_when_no_cassette = true
 end
 
 Shoulda::Matchers.configure do |config|
@@ -18,6 +19,26 @@ Shoulda::Matchers.configure do |config|
     with.test_framework :rspec
     with.library :rails
   end
+end
+
+def stub_omniauth
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
+    provider: 'github',
+    info: {
+      nickname: "kbs5280"
+    },
+    extra: {
+      raw_info: {
+        uid: "1234",
+        name: "Kris Sparks",
+      }
+    },
+    credentials: {
+      token: ENV['oauth_token'],
+      secret: "secret"
+    }
+  })
 end
 # Add additional requires below this line. Rails is not loaded until this point!
 
