@@ -38,3 +38,4 @@ SimpleCov
 
 # Ignore application configuration
 /config/application.yml
+/spec/vcr_cassettes

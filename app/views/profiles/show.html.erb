@@ -1,7 +1,7 @@
 <section class="wrap">
   <div class="jumbotron">
     <div class="hero">
-    <h2 class="display-3">Welcome to API Curious for Github, <%= @profile.name %>!</h2>
+    <h2 class="display-3">Welcome to API Curious for Github, <%= @profile.account_info.name %>!</h2>
       <div class="image">
         <%#= image_tag @profile.avatar_url %>
       </div><br>
@@ -13,36 +13,21 @@
   <table class="table table-striped">
   <thead>
     <tr>
-      <th>Account Info</th>
       <th>Name</th>
       <th>Username</th>
       <th>Followers</th>
       <th>Following</th>
-      <th>Starred Followers</th>
+      <th>Starred</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th scope="row"></th>
-      <td><%= @profile.name %></td>
-      <td><%= @profile.login %></td>
-      <td><%= @profile.followers %></td>
-      <td><%= @profile.following %></td>
-      <td><%= @profile.following %></td>
+      <td><%= @profile.account_info.name %></td>
+      <td><%= @profile.account_info.username %></td>
+      <td><%= @profile.account_info.followers %></td>
+      <td><%= @profile.account_info.following %></td>
+      <td><%= @profile.starred_repos.count %></td>
     </tr>
   </tbody>
   </table>
-  <% @starred_repos.each do |repo| %>
-    <%= repo.name %>
-  <% end %>
-  <br><br>
-  <% @recent_activity.each do |activity| %>
-    <%= activity.type %>
-  <% end %>
-  <br><br>
-  <% @received_events.each do |event| %>
-    <%= event.type %>
-    <br>
-    <%=  %>
-  <% end %>
 </section>
