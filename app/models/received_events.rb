@@ -1,4 +1,5 @@
 class ReceivedEvents
+  attr_reader :type, :actor, :repo_name
 
   def initialize(params)
     @type       = params[:type]

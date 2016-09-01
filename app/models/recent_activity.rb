@@ -1,4 +1,5 @@
 class RecentActivity
+  attr_reader :type, :repo_name, :repo_url
 
   def initialize(params)
     @type       = params[:type]
