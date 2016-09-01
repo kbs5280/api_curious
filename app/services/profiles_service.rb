@@ -26,7 +26,7 @@ class ProfilesService
   end
 
   def zacks_in_denver
-    response = connection.get("/search/users?q=zack+location:denver")
+    response = connection.get("/search/users", { q: 'zack', location: 'denver' })
     parse(response.body)
   end
 
