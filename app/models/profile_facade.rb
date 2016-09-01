@@ -14,14 +14,10 @@ class ProfileFacade
   end
 
   def recent_activity
-    RecentActivity.all_by(current_user).take(10).map do |activity|
-      "Type: #{activity.type}, Repo URL: #{activity.repo_url}, Repo: #{activity.repo_name}"
-    end
+    RecentActivity.activity_display(current_user)
   end
 
   def received_events
-    ReceivedEvents.all_by(current_user).take(10).map do |event|
-      "Actor: #{event.actor}, Type: #{event.type}, Repo: #{event.repo_name}"
-    end
+    ReceivedEvents.events_display(current_user)
   end
 end

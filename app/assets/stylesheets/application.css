@@ -23,3 +23,7 @@
 .hero {
   padding: 30px;
 }
+
+img.resize {
+	max-width:20%;
+}
