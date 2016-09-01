@@ -2,6 +2,8 @@
   <div class="jumbotron">
     <div class="hero">
     <h2 class="display-3">Welcome to API Curious for Github, <%= @profile.account_info.name %>!</h2>
+    <%= image_tag @profile.account_info.image_url, class: 'freesize' %><br><br>
+
       <div class="lead">
         <%= render partial: 'shared/login' %>
       </div>
@@ -25,6 +27,7 @@
       <td><%= @profile.account_info.following %></td>
       <td><%= @profile.starred_repos.count %></td>
     </tr>
+
   </tbody>
   </table>
   <table class="table table-striped">
@@ -59,7 +62,23 @@
     </tr>
   </tbody>
   </table>
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Zack's In Denver</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <% @profile.zacks_in_denver.each do |zack| %>
+            <%= zack.name %><br><br>
+            <%= image_tag zack.image, class: 'resize' %><br><br>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+  </table>
   <div class="wrap">
-    <%= image_tag @profile.account_info.image_url, class: 'resize' %>
   </div>
 </section>

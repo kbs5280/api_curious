@@ -25,6 +25,11 @@ class ProfilesService
     parse(response.body)
   end
 
+  def zacks_in_denver
+    response = connection.get("/search/users", { q: 'zack', location: 'denver' })
+    parse(response.body)
+  end
+
   private
     def parse(response_body)
       JSON.parse(response_body, symbolize_names: true)

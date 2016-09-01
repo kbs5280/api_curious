@@ -27,3 +27,7 @@
 img.resize {
 	max-width:20%;
 }
+
+img.freesize {
+	max-width:10%;
+}

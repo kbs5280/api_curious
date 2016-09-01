@@ -20,4 +20,8 @@ class ProfileFacade
   def received_events
     ReceivedEvents.events_display(current_user)
   end
+
+  def zacks_in_denver
+    ZacksInDenver.all_by(current_user)
+  end
 end
