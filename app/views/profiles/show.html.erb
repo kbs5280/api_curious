@@ -46,7 +46,7 @@
   <table class="table table-striped">
   <thead>
     <tr>
-      <th>Recent Commits</th>
+      <th>My Recent Activity</th>
     </tr>
   </thead>
   <tbody>
@@ -58,7 +58,8 @@
       </td>
     </tr>
   </tbody>
+  </table>
+  <div class="wrap">
+    <%= image_tag @profile.account_info.image_url %>
+  </div>
 </section>
-<div>
-  <%= image_tag @profile.account_info.image_url %>
-</div>
