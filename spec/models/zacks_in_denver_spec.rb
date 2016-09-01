@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe ZacksInDenver, type: :model do
-  it "returns all Zack's in Denver" do
+  it 'returns all Zacks in Denver' do
     VCR.use_cassette('zacks_in_denver') do
       user = User.new(oauth_token: ENV['oauth_token'],
                       username: "kbs5280")
