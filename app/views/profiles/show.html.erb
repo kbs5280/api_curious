@@ -2,9 +2,6 @@
   <div class="jumbotron">
     <div class="hero">
     <h2 class="display-3">Welcome to API Curious for Github, <%= @profile.account_info.name %>!</h2>
-      <div class="image">
-        <%#= image_tag @profile.avatar_url %>
-      </div><br>
       <div class="lead">
         <%= render partial: 'shared/login' %>
       </div>
@@ -30,4 +27,38 @@
     </tr>
   </tbody>
   </table>
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Recent Activity from Users I Follow</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <% @profile.received_events.each do |event| %>
+            <%= event %><br><br>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+  </table>
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Recent Commits</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <% @profile.recent_activity.each do |activity| %>
+            <%= activity %><br><br>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
 </section>
+<div>
+  <%= image_tag @profile.account_info.image_url %>
+</div>
